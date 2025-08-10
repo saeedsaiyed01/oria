@@ -90,22 +90,22 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12">
+          <div className="space-y-6 sm:space-y-8">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-44 h-44 bg-white rounded-lg flex items-center justify-center">
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 xl:w-44 xl:h-44 bg-white rounded-lg flex items-center justify-center">
                 <Image
                   src={footerContent.logo.src}
                   alt={footerContent.logo.alt}
                   width={64}
                   height={64}
-                  className="w-[163px] h-[163px] top-[7506px] left-[80px] rounded-full"
+                  className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 xl:w-[163px] xl:h-[163px] rounded-full"
                 />
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {footerContent.appDownloads.map((app) => (
                 <a key={app.name} href={app.href} className="inline-block">
                   <Image
@@ -113,23 +113,23 @@ export default function Footer() {
                     alt={app.alt}
                     width={160}
                     height={48}
-                    className="h-14 w-auto"
+                    className="h-10 sm:h-12 md:h-14 w-auto"
                   />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-white">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-lg sm:text-xl font-semibold text-white">
               {footerContent.navigation.navigation.title}
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerContent.navigation.navigation.links.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-base"
+                    className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
                   >
                     {link.name}
                   </a>
@@ -138,16 +138,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-white">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-lg sm:text-xl font-semibold text-white">
               {footerContent.navigation.product.title}
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerContent.navigation.product.links.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-base"
+                    className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
                   >
                     {link.name}
                   </a>
@@ -156,16 +156,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-white">
+          <div className="space-y-4 sm:space-y-6">
+            <h3 className="text-lg sm:text-xl font-semibold text-white">
               {footerContent.navigation.support.title}
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {footerContent.navigation.support.links.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors text-base"
+                    className="text-gray-300 hover:text-white transition-colors text-sm sm:text-base"
                   >
                     {link.name}
                   </a>

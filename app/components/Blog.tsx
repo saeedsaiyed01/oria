@@ -32,27 +32,27 @@ export default function Blog() {
   return (
     <section id="blog" className="relative py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
-          <div className="space-y-6 lg:flex-1 lg:pr-12">
-            <div className="text-blue-600 text-sm font-medium uppercase tracking-wider">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8 sm:mb-10 lg:mb-12">
+          <div className="space-y-4 sm:space-y-6 lg:flex-1 lg:pr-8 xl:pr-12">
+            <div className="text-blue-600 text-xs sm:text-sm font-medium uppercase tracking-wider">
               {blogContent.header}
             </div>
 
-            <div className="space-y-2 flex gap-4">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
+            <div className="space-y-2 flex flex-col sm:flex-row gap-2 sm:gap-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900">
                 {blogContent.title.line1}
               </h2>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-blue-600">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-blue-600">
                 {blogContent.title.line2}
               </h2>
             </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
               {blogContent.description}
             </p>
           </div>
 
-          <div className="mt-8 lg:mt-0">
+          <div className="mt-6 sm:mt-8 lg:mt-0">
             <Button
               href={blogContent.button.href}
               size="lg"

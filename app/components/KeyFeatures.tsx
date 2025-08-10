@@ -44,22 +44,22 @@ export default function KeyFeatures() {
       <div className="absolute top-0 left-1/2 w-full h-px bg-gray-200 transform -translate-x-1/2 rotate-45 origin-top-left"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="text-[#484AF6] text-sm font-medium uppercase tracking-wider">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-12 items-center">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="text-[#484AF6] text-xs sm:text-sm font-medium uppercase tracking-wider">
               {keyFeaturesContent.header}
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900">
                 {keyFeaturesContent.title.line1}
               </h2>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#484AF6]">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#484AF6]">
                 {keyFeaturesContent.title.line2}
               </h2>
             </div>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               {keyFeaturesContent.description}
             </p>
           </div>
@@ -71,28 +71,28 @@ export default function KeyFeatures() {
                 alt={keyFeaturesContent.mobileImage.alt}
                 width={680}
                 height={1000}
-                className="w-[380px] sm:w-[560px] lg:w-[1680px] xl:w-[760px] 2xl:w-[820px] h-auto drop-shadow-2xl"
+                className="w-[280px] sm:w-[380px] md:w-[480px] lg:w-[600px] xl:w-[680px] 2xl:w-[820px] h-auto drop-shadow-2xl"
                 priority
               />
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="w-16 h-16 bg-[#484AF6] rounded-full flex items-center justify-center">
-              <span className="text-white text-xl font-bold">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-[#484AF6] rounded-full flex items-center justify-center">
+              <span className="text-white text-lg sm:text-xl font-bold">
                 {keyFeaturesContent.feature.icon}
               </span>
             </div>
 
-            <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
               {keyFeaturesContent.feature.title}
             </h3>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               {keyFeaturesContent.feature.description}
             </p>
 
-            <div className="flex space-x-4 pt-4">
+            <div className="flex space-x-3 sm:space-x-4 pt-4">
               <button className="w-12 h-12 bg-[#484AF6] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
                 <svg
                   className="w-6 h-6 text-white"

@@ -107,13 +107,13 @@ export default function Contact() {
       className="relative py-16 sm:py-24 bg-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+          <div className="space-y-6 sm:space-y-8">
             <div className="space-y-4">
-              <div className="text-gray-500 text-sm font-medium uppercase tracking-wider">
+              <div className="text-gray-500 text-xs sm:text-sm font-medium uppercase tracking-wider">
                 {contactContent.header}
               </div>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
                 <span className="text-gray-900">
                   {contactContent.title.line1}
                 </span>{" "}
@@ -121,7 +121,7 @@ export default function Contact() {
                   {contactContent.title.line2}
                 </span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed max-w-md">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-md">
                 {contactContent.description}
               </p>
             </div>
@@ -216,16 +216,15 @@ export default function Contact() {
           </div>
 
           <div className="relative">
-            <div className="relative h-full min-h-[600px] -mr-44 lg:-mr-44 bg-[#484AF6] rounded-tl-2xl rounded-tr-2xl">
-              <div className="absolute top-6 left-6 w-8 h-8 bg-blue-800 rounded-md transform rotate-45"></div>
+            <div className="relative h-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px] -mr-8 sm:-mr-16 md:-mr-24 lg:-mr-32 xl:-mr-44 bg-[#484AF6] rounded-tl-xl sm:rounded-tl-2xl rounded-tr-xl sm:rounded-tr-2xl">
+              <div className="absolute top-4 sm:top-6 left-4 sm:left-6 w-6 h-6 sm:w-8 sm:h-8 bg-blue-800 rounded-md transform rotate-45"></div>
 
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="bg-blue-900 rounded-2xl p-8 text-white space-y-8 max-w-md">
-                  image.png
-                  <h3 className="text-3xl font-bold">
+              <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 md:p-8">
+                <div className="bg-blue-900 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-white space-y-6 sm:space-y-8 max-w-sm sm:max-w-md">
+                  <h3 className="text-2xl sm:text-3xl font-bold">
                     {contactContent.contactInfo.title}
                   </h3>
-                  <p className="text-lg text-gray-200 leading-relaxed">
+                  <p className="text-base sm:text-lg text-gray-200 leading-relaxed">
                     {contactContent.contactInfo.description}
                   </p>
                   <div className="space-y-6">

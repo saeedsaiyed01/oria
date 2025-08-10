@@ -32,10 +32,10 @@ export default function EarlyAccess() {
       className="relative pt-10 sm:pt-14 pb-16 sm:pb-20 mx-4 sm:mx-8 lg:mx-14 bg-white"
     >
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 py-10 lg:px-12 lg:py-14">
-        <div className="relative mx-auto max-w-7xl bg-white border border-gray-200 rounded-[22px] px-10 py-8 sm:px-14 sm:py-10 md:px-16 md:py-12 shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="relative mx-auto max-w-7xl bg-white border border-gray-200 rounded-[16px] sm:rounded-[20px] md:rounded-[22px] px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16 py-6 sm:py-8 md:py-10 lg:py-12 shadow-[0_8px_32px_rgba(0,0,0,0.06)]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 items-start">
             <div className="relative">
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 <span className="text-gray-900">
                   {earlyAccessContent.title.line1}
                 </span>
@@ -84,11 +84,11 @@ export default function EarlyAccess() {
           </div>
         </div>
 
-        <div className="mx-auto max-w-6xl pt-6 flex items-center justify-between">
-          <span className="text-2xl sm:text-3xl text-gray-300">Blossom</span>
-          <span className="text-2xl sm:text-3xl text-gray-900">Volume</span>
-          <span className="text-2xl sm:text-3xl text-gray-500">Sitemark</span>
-          <span className="text-2xl sm:text-3xl text-gray-300">Hues</span>
+        <div className="mx-auto max-w-6xl pt-4 sm:pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6">
+          <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">Blossom</span>
+          <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900">Volume</span>
+          <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-500">Sitemark</span>
+          <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">Hues</span>
         </div>
       </div>
     </section>
