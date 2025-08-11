@@ -90,8 +90,9 @@ export default function FAQ() {
                 <span className="text-blue-600">{faqContent.title.line2}</span>
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Find answers to commonly asked questions about our platform, features, and services. Can't find what you're looking for?
-              </p>
+  Find answers to commonly asked questions about our platform, features, and services. Can&apos;t find what you&apos;re looking for?
+</p>
+
             </div>
 
           
