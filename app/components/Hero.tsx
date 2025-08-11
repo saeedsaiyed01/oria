@@ -31,7 +31,7 @@ const heroContent = {
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden">
+    <section id="hero" className="relative min-h-screen overflow-hidden pb-0">
       <div className="absolute inset-0">
         <Image
           src={heroContent.background.pattern}
@@ -113,8 +113,8 @@ export default function Hero() {
               priority
             />
 
-            {/* Coming Soon card - responsive positioning */}
-            <div className="hidden md:block absolute top-4 sm:top-6 md:top-8 lg:top-10 right-[-120px] sm:right-[-160px] md:right-[-180px] lg:right-[-220px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg">
+
+            <div className="hidden md:block mt-20  mr-60 absolute top-4 sm:top-6 md:top-8 lg:top-10 right-[-120px] sm:right-[-160px] md:right-[-180px] lg:right-[-220px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg">
               <div className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3">Coming Soon</div>
               <div className="grid grid-cols-4 gap-2 sm:gap-3">
                 <div className="bg-white/10 rounded-lg px-2 sm:px-3 py-1 sm:py-2 text-center">
@@ -143,7 +143,7 @@ export default function Hero() {
               href={heroContent.primaryCTA.href}
               variant="yellow"
               size="lg"
-              className="font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-lg"
+              className="font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-lg mb-38"
             >
               {heroContent.primaryCTA.text}
             </Button>

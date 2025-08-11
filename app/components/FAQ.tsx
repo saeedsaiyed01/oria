@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image';
 import { useState } from 'react';
 import Button from './Button';
 
@@ -7,7 +8,6 @@ const faqContent = {
     line1: 'FAQ',
     line2: 's'
   },
-  description: 'Find answers to commonly asked questions about our platform, features, and services. Can\'t find what you\'re looking for?',
   questions: [
     {
       id: 1,
@@ -41,9 +41,8 @@ const faqContent = {
   },
   mobileApp: {
     title: {
-      line1: 'Join Our',
-      line2: 'Mobile App',
-      line3: 'Today'
+      line1: 'Join Our Mobile App',
+      line2: 'Today',
     },
     description: 'Get the most out of We Tell Facts with our mobile app. Practice anywhere, anytime with offline capabilities and seamless sync across all your devices.',
     placeholder: 'Enter your email',
@@ -79,7 +78,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-16 sm:py-24 bg-white">
+    <section id="faq" className="relative py-16 sm:py-24 bg-white mb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
    
@@ -90,8 +89,8 @@ export default function FAQ() {
                 <span className="text-gray-900">{faqContent.title.line1}</span>
                 <span className="text-blue-600">{faqContent.title.line2}</span>
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 max-w-md">
-                {faqContent.description}
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Find answers to commonly asked questions about our platform, features, and services. Can't find what you're looking for?
               </p>
             </div>
 
@@ -131,82 +130,88 @@ export default function FAQ() {
               <Button
                 href={faqContent.button.href}
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg"
+                className="bg-indigo-600 hover:bg-blue-700 font-bold px-8 py-4 rounded-lg text-lg"
               >
                 {faqContent.button.text}
-              </Button>
+              </Button>th
             </div>
           </div>
 
           
-          <div className="relative">
-            <div className="relative rounded-[24px] border border-gray-200 shadow-sm p-8 lg:p-10 bg-white">
-              <div className="space-y-8 max-w-xl">
-                {/* Title */}
-                <div className="space-y-2">
-                  <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                    {faqContent.mobileApp.title.line1}
-                  </h3>
-                  <h3 className="text-4xl sm:text-5xl font-bold text-blue-600">
-                    {faqContent.mobileApp.title.line2}
-                  </h3>
-                  <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                    {faqContent.mobileApp.title.line3}
-                  </h3>
-                </div>
-
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {faqContent.mobileApp.description}
-                </p>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {/* Email Form */}
-                  <div className="space-y-4">
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder={faqContent.mobileApp.placeholder}
-                        className="w-full h-12 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder-gray-500"
-                        required
-                      />
-                      <Button
-                        type="submit"
-                        size="lg"
-                        className="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-xl"
-                      >
-                        {faqContent.mobileApp.button.text}
-                      </Button>
-                    </form>
+                    <div className="relative">
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0 mt-[38px]">
+                <Image
+                  src="/Images/joinmobileBG.png"
+                  alt="Mobile app background"
+                  width={6200}
+                  height={6200}
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="relative z-10 p-8 lg:p-10">
+                <div className="space-y-8 max-w-full">
+                  <div className="space-y-2 text-left mt-[-2px]">
+                    <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
+                      {faqContent.mobileApp.title.line1}
+                    </h3>
+                    <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
+                      {faqContent.mobileApp.title.line2}
+                    </h3>
                   </div>
 
-                  {/* Countdown */}
-                  <div className="rounded-2xl border border-gray-200 bg-gray-50 p-6">
-                    <h4 className="text-lg font-bold text-gray-900 mb-4 text-center">
-                      {faqContent.mobileApp.countdown.title}
-                    </h4>
-                    <div className="grid grid-cols-4 gap-3">
-                      {[{
-                        label: 'Days', value: faqContent.mobileApp.countdown.days
-                      }, {
-                        label: 'Hours', value: faqContent.mobileApp.countdown.hours
-                      }, {
-                        label: 'Mins', value: faqContent.mobileApp.countdown.minutes
-                      }, {
-                        label: 'Sec', value: faqContent.mobileApp.countdown.seconds
-                      }].map((item) => (
-                        <div key={item.label} className="rounded-xl bg-white border border-gray-200 px-3 py-2 text-center shadow-sm">
-                          <div className="text-xl font-semibold text-blue-600">{item.value}</div>
-                          <div className="text-[11px] text-gray-600">{item.label}</div>
-                        </div>
-                      ))}
+                  <p className="text-lg text-gray-600 leading-relaxed text-left">
+                    {faqContent.mobileApp.description}
+                  </p>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+                    <div className="space-y-4">
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <input
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder={faqContent.mobileApp.placeholder}
+                          className="w-full mt-0 h-12 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                          required
+                        />
+                        <Button
+                          type="submit"
+                          size="lg"
+                          className="w-32 bg-indigo-900 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-xl"
+                        >
+                          {faqContent.mobileApp.button.text}
+                        </Button>
+                      </form>
+                    </div>
+
+                    <div className='mt-[-32px]'>
+                    <div className="rounded-xl border border-gray-200 bg-purple-50 p-3 mb-[100px]">
+                      <h4 className="text-sm font-bold text-gray-900 mb-3 text-center">
+                        {faqContent.mobileApp.countdown.title}
+                      </h4>
+                      <div className="grid grid-cols-4 gap-2">
+                        {[{
+                          label: 'Days', value: faqContent.mobileApp.countdown.days
+                        }, {
+                          label: 'Hours', value: faqContent.mobileApp.countdown.hours
+                        }, {
+                          label: 'Mins', value: faqContent.mobileApp.countdown.minutes
+                        }, {
+                          label: 'Sec', value: faqContent.mobileApp.countdown.seconds
+                        }].map((item) => (
+                          <div key={item.label} className="rounded-lg bg-purple-50 border border-blue-300 px-2 py-1 text-center">
+                            <div className="text-lg font-semibold text-blue-600">{item.value}</div>
+                            <div className="text-[10px] text-gray-600">{item.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              
             </div>
           </div>
         </div>

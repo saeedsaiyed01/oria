@@ -5,9 +5,11 @@ const aiPoweredContent = {
   header: 'NEXT-GEN AVIATION TECH',
   title: {
     line1: 'AI-Powered',
-    line2: 'Communication Training'
+    line2: 'Communication',
+    line3:"Training"
   },
-  subtitle: 'Neural Speech Processing',
+  subtitle: 'Neural Speech',
+  subtitle2: 'Processing',
   description: 'Advanced AI understands context, accent, and intent in real-time communication',
   supportingText: 'Revolutionary machine learning algorithms analyze real ATC patterns to create the most realistic training environment ever built.',
   buttons: {
@@ -15,85 +17,98 @@ const aiPoweredContent = {
     viewAll: 'View All'
   },
   image: {
-    src: '/Images/ai-powered-image.jpg',
+    src: '/Images/aipowered.png',
     alt: 'AI-Powered Communication Training'
   }
 };
 
 export default function AIPowered() {
   return (
-    <section className="relative py-16 sm:py-24 bg-[#F5F7FB] overflow-hidden">
-     
-      <div className="absolute inset-x-2 top-4 bottom-4 bg-white rounded-[32px]"></div>
+    <section className="relative py-16 sm:py-24 overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/Images/CTASection.png"
+          alt="AI Powered background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
       
-
-     
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start pt-8 sm:pt-12">
-         
-          <div className="space-y-8">
-           
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+       
+          <div className="space-y-6 sm:space-y-8 text-white">
             <div className="text-[#484AF6] text-sm font-medium uppercase tracking-wider">
               {aiPoweredContent.header}
             </div>
 
-            
             <div className="space-y-2">
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black">
                 {aiPoweredContent.title.line1}
               </h2>
-              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#484AF6]">
+              <div className='flex gap-2'>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-[#484AF6] flex ">
                 {aiPoweredContent.title.line2}
               </h2>
+              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl font-bold text-black flex ">
+                {aiPoweredContent.title.line3}
+              </h2>
+              </div>
             </div>
-
-            
-            <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">
+    <div className=''>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black ">
               {aiPoweredContent.subtitle}
             </h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black ">
+              {aiPoweredContent.subtitle2}
+            </h3>
+            </div>
 
-          
-            <p className="text-xl text-gray-600 leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl text-black leading-relaxed max-w-2xl">
               {aiPoweredContent.description}
             </p>
 
-         
             <div className="pt-4">
               <Button
                 href="#read-more"
                 size="lg"
-                className="bg-[#484AF6] hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg"
+                className="bg-indigo-500 text-black font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg"
               >
                 {aiPoweredContent.buttons.readMore}
               </Button>
             </div>
           </div>
 
-         
-          <div className="space-y-8 relative">
-            {/* Supporting Text */}
-            <p className="text-lg text-gray-600 leading-relaxed text-right">
+  
+          <div className="space-y-6 sm:space-y-8 ">
+      
+            <div className=''>
+            <p className="text-lg text-black leading-relaxed text-right mr-[80px]">
               {aiPoweredContent.supportingText}
             </p>
+            </div>
+         
 
           
-            <div className="relative lg:ml-auto lg:w-[560px]">
+            <div className="relative">
               <Image
                 src={aiPoweredContent.image.src}
                 alt={aiPoweredContent.image.alt}
-                width={680}
+                width={680} 
                 height={520}
-                className="w-full h-auto rounded-2xl shadow-lg"
+                className="w-full h-auto rounded-2xl object-cover ml-8"
                 priority
               />
             </div>
 
-           
+      
             <div className="flex justify-end">
               <Button
                 href="#view-all"
                 size="lg"
-                className="bg-[#484AF6] hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg"
+                className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg"
               >
                 {aiPoweredContent.buttons.viewAll}
               </Button>

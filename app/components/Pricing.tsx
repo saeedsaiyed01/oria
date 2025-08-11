@@ -1,12 +1,13 @@
 "use client";
+import Image from "next/image";
 import { useState } from "react";
 import Button from "./Button";
 
 const pricingContent = {
   title: {
     line1: "Your",
-    line2: "Membership",
-    line3: "Starts Here",
+    line2: "Membership Starts",
+    line3: " Here",
   },
   toggle: {
     paid: "Paid",
@@ -70,17 +71,27 @@ export default function Pricing() {
       case "primary":
         return "bg-blue-600 hover:bg-blue-700 text-white";
       case "outline":
-        return "bg-[#484AF6] text-blue-600 border border-blue-600 hover:bg-blue-50";
+        return "bg-blue-600 text-black border border-gray-300 ";
       case "dark":
-        return "bg-gray-800 hover:bg-gray-900 text-white";
+        return "bg-gray-900 hover:bg-gray-800 text-white";
       default:
         return "bg-blue-600 hover:bg-blue-700 text-white";
     }
   };
 
   return (
-    <section className="relative py-16 sm:py-24 bg-gray-100 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 min-h-screen overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src="/Images/membershipSub.png"
+          alt="Membership background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-16">
           <div className="mb-8 lg:mb-0">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
@@ -98,23 +109,23 @@ export default function Pricing() {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
-            <div className="flex items-center bg-white rounded-full p-1 shadow-md ml-10">
+            <div className="flex items-center bg-white rounded-xl p-1 shadow-md mx-auto ml-10">
               <button
                 onClick={() => setIsPaid(false)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                className={`px-6 py-2 rounded-xl font-medium transition-colors ${
                   !isPaid
                     ? "bg-blue-600 text-white"
-                    : "text-gray-700 hover:text-gray-900"
+                    : "text-gray-700 hover:text-gray-900 border border-gray-300"
                 }`}
               >
                 {pricingContent.toggle.free}
               </button>
               <button
                 onClick={() => setIsPaid(true)}
-                className={`px-6 py-2 rounded-full font-medium transition-colors ${
+                className={`px-6 py-2 rounded-xl font-medium transition-colors ${
                   isPaid
                     ? "bg-blue-600 text-white"
-                    : "text-gray-700 hover:text-gray-900"
+                    : "text-gray-700 hover:text-gray-900 border border-gray-300"
                 }`}
               >
                 {pricingContent.toggle.paid}
@@ -131,16 +142,27 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {pricingContent.plans.map((plan) => (
             <div
               key={plan.id}
-              className={`rounded-2xl p-8 shadow-xl relative overflow-hidden ${
+              className={`rounded-2xl p-12 shadow-xl relative overflow-hidden min-h-[500px] ${
                 plan.background === "dark"
-                  ? "bg-blue-900 text-white"
-                  : "bg-white text-gray-900"
+                  ? "text-white"
+                  : " text-gray-900"
               }`}
             >
+              {plan.background === "dark" && (
+                <div className="absolute inset-0">
+                  <Image
+                    src="/Images/final1stcard.png"
+                    alt="Dark card background"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+
               {plan.background === "light" && (
                 <div className="absolute bottom-4 right-4 text-gray-100 text-6xl font-bold opacity-20">
                   ORA
@@ -148,10 +170,9 @@ export default function Pricing() {
               )}
 
               <div className="relative z-10">
-                {/* Plan Name */}
-                <div className="text-center mb-6">
+                <div className="text-center mb-8">
                   <span
-                    className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${
+                    className={`inline-block px-6 py-3 rounded-full text-base font-medium ${
                       plan.background === "dark"
                         ? "bg-gray-700 text-white"
                         : "bg-gray-200 text-gray-900"
@@ -161,19 +182,16 @@ export default function Pricing() {
                   </span>
                 </div>
 
-                {/* Description */}
-                <p className="text-center mb-8 text-lg">{plan.description}</p>
+                <p className="text-center mb-10 text-xl">{plan.description}</p>
 
-                {/* Price */}
-                <div className="text-center mb-8">
-                  <div className="text-5xl sm:text-6xl font-bold mb-2">
+                <div className="text-center mb-10">
+                  <div className="text-6xl sm:text-7xl font-bold mb-3">
                     {isPaid ? plan.price.paid : plan.price.free}
                   </div>
-                  <div className="text-lg opacity-80">{plan.period}</div>
+                  <div className="text-xl opacity-80">{plan.period}</div>
                 </div>
 
-                {/* Buttons */}
-                <div className="flex gap-4">
+                <div className="flex gap-6">
                   {plan.buttons.map((button, index) => (
                     <Button
                       key={index}
