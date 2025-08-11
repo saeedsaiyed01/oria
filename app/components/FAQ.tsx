@@ -56,10 +56,6 @@ const faqContent = {
       hours: 18,
       minutes: 53,
       seconds: 21
-    },
-    background: {
-      src: '/Images/Feature Section.png',
-      alt: 'White speech bubble background'
     }
   }
 };
@@ -78,21 +74,17 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative py-16 sm:py-24 bg-white mb-10">
+    <section id="faq" className="relative py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
    
           <div className="space-y-6 sm:space-y-8">
       
             <div className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:teimage.pngxt-6xl font-bold ">
                 <span className="text-gray-900">{faqContent.title.line1}</span>
-                <span className="text-blue-600">{faqContent.title.line2}</span>
+                <span className="text-[#5B42F3]">{faqContent.title.line2}</span>
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
-  Find answers to commonly asked questions about our platform, features, and services. Can&apos;t find what you&apos;re looking for?
-</p>
-
             </div>
 
           
@@ -101,7 +93,7 @@ export default function FAQ() {
                 <div key={item.id} className="border-b border-gray-200 pb-4">
                   <button
                     onClick={() => handleQuestionToggle(item.id)}
-                    className="w-full flex justify-between items-center text-left py-4 hover:text-blue-600 transition-colors"
+                    className="w-full flex justify-between items-center text-left py-4 hover:text-[#5B42F3] transition-colors"
                   >
                     <span className="text-lg font-medium text-gray-900">
                       {item.question}
@@ -131,86 +123,91 @@ export default function FAQ() {
               <Button
                 href={faqContent.button.href}
                 size="lg"
-                className="bg-indigo-600 hover:bg-blue-700 font-bold px-8 py-4 rounded-lg text-lg"
+                className="bg-indigo-600 hover:bg-[#5B42F3] font-bold px-8 py-4 rounded-lg text-lg"
               >
                 {faqContent.button.text}
-              </Button>th
+              </Button>
             </div>
           </div>
 
           
-                    <div className="relative">
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0 mt-[38px]">
+          <div className="relative">
+            <p className="text-lg text-gray-600 leading-relaxed mb-6 mr-10">
+              Find answers to commonly asked questions about our platform, features, and services. Can&apos;t find what you&apos;re looking for?
+            </p>
+            <div className="relative">
+              <div className="relative">
                 <Image
-                  src="/Images/joinmobileBG.png"
-                  alt="Mobile app background"
-                  width={6200}
-                  height={6200}
-                  className="object-cover"
+                  src="/Images/joinmobileBG2.png"
+                  alt="Mobile app background card with cut-out corner"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
                   priority
                 />
               </div>
-              <div className="relative z-10 p-8 lg:p-10">
-                <div className="space-y-8 max-w-full">
-                  <div className="space-y-2 text-left mt-[-2px]">
+              <div className="absolute inset-0 z-10 p-8 lg:p-10">
+                <div className="space-y-8 max-w-full ">
+                  <div className="space-y-2 text-left">
                     <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
                       {faqContent.mobileApp.title.line1}
                     </h3>
-                    <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
-                      {faqContent.mobileApp.title.line2}
-                    </h3>
+                                          <h3 className="text-4xl sm:text-5xl font-bold text-[#5B42F3]">
+                        {faqContent.mobileApp.title.line2}
+                      </h3>
                   </div>
 
-                  <p className="text-lg text-gray-600 leading-relaxed text-left">
+                  <p className="text-lg text-gray-600 leading-relaxed text-left mt-[-30px] ">
                     {faqContent.mobileApp.description}
                   </p>
 
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
-                    <div className="space-y-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className='mt-[-20px]'>
+                    <div className="space-y-6">
                       <form onSubmit={handleSubmit} className="space-y-4">
                         <input
                           type="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder={faqContent.mobileApp.placeholder}
-                          className="w-full mt-0 h-12 px-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                          className="w-70 h-12 px-8 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
                           required
                         />
                         <Button
                           type="submit"
                           size="lg"
-                          className="w-32 bg-indigo-900 hover:bg-blue-800 text-white font-bold px-6 py-3 rounded-xl"
+                          className="w-30 bg-gray-800 hover:bg-gray-900 text-white font-bold px-6 py-3 rounded-xl"
                         >
                           {faqContent.mobileApp.button.text}
                         </Button>
                       </form>
                     </div>
-
-                    <div className='mt-[-32px]'>
-                    <div className="rounded-xl border border-gray-200 bg-purple-50 p-3 mb-[100px]">
-                      <h4 className="text-sm font-bold text-gray-900 mb-3 text-center">
-                        {faqContent.mobileApp.countdown.title}
-                      </h4>
-                      <div className="grid grid-cols-4 gap-2">
-                        {[{
-                          label: 'Days', value: faqContent.mobileApp.countdown.days
-                        }, {
-                          label: 'Hours', value: faqContent.mobileApp.countdown.hours
-                        }, {
-                          label: 'Mins', value: faqContent.mobileApp.countdown.minutes
-                        }, {
-                          label: 'Sec', value: faqContent.mobileApp.countdown.seconds
-                        }].map((item) => (
-                          <div key={item.label} className="rounded-lg bg-purple-50 border border-blue-300 px-2 py-1 text-center">
-                            <div className="text-lg font-semibold text-blue-600">{item.value}</div>
-                            <div className="text-[10px] text-gray-600">{item.label}</div>
-                          </div>
-                        ))}
-                      </div>
                     </div>
-                    </div>
+                    
                   </div>
+                </div>
+              </div>
+              
+              {/* Countdown box positioned outside the main card */}
+              <div className=" mb-20  mr-10 absolute -bottom-6 -right-6 bg-purple-50 border border-gray-200 rounded-xl p-4 max-w-[200px] shadow-lg z-20">
+                <h4 className="text-sm font-bold text-gray-900 mb-3 text-center">
+                  {faqContent.mobileApp.countdown.title}
+                </h4>
+                <div className="grid grid-cols-4 gap-2">
+                  {[{
+                    label: 'Days', value: faqContent.mobileApp.countdown.days
+                  }, {
+                    label: 'Hours', value: faqContent.mobileApp.countdown.hours
+                  }, {
+                    label: 'Mins', value: faqContent.mobileApp.countdown.minutes
+                  }, {
+                    label: 'Sec', value: faqContent.mobileApp.countdown.seconds
+                  }].map((item) => (
+                    <div key={item.label} className="bg-white border border-blue-300 rounded-lg px-2 py-1 text-center">
+                      <div className="text-lg font-medium text-[#5B42F3]">{item.value}</div>
+                      <div className="text-[10px] text-gray-600">{item.label}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

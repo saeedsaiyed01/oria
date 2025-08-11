@@ -53,7 +53,7 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:block">
+          <div className=" lg:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navbarContent.navigation.map((item) => (
                 <Link

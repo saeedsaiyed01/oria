@@ -80,12 +80,12 @@ const footerContent = {
 export default function Footer() {
   return (
     <footer className="relative bg-black text-white py-20 overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 -top-60">
         <Image
           src="/Images/Group.png"
           alt="Footer background pattern"
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-80"
         />
       </div>
 

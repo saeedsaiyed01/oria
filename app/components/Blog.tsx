@@ -156,7 +156,7 @@ export default function Blog() {
                 </svg>
                 <span>{blogContent.featuredPost.readTime}</span>
               </div>
-            </div>image.png
+            </div>
 
         
             <h3 className="text-3xl sm:text-4xl font-Inter font-bold text-gray-900 leading-tight">

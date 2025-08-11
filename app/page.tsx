@@ -12,7 +12,7 @@ export default function Home() {
       <Newsletter />
       <FAQ />
       <Pricing />
-      <Contact />
+      <Contact /> 
       <Footer />
     </main>
   );
