@@ -29,7 +29,7 @@ export default function Newsletter() {
   return (
     <section
       id="newsletter"
-      className="relative py-16 sm:py-24 overflow-hidden rounded-3xl"
+      className="relative py-14 sm:py-24 overflow-hidden rounded-3xl"
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -46,16 +46,17 @@ export default function Newsletter() {
       <div className="absolute inset-0"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <div className="relative text-white px-2 sm:px-8 md:px-12 py-2 sm:py-12 md:py-8 mr-[600px] mb-20">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extralight leading-tight ml-[-335px] ">
+        <div className="relative">
+          {/* Left side content positioned absolutely to match your design */}
+          <div className="absolute left-0 top-0 w-1/2 text-white px-2 sm:px-8 md:px-12 py-4 sm:py-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extralight leading-tight">
               {newsletterContent.title}
             </h2>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extralight mb-6 sm:mb-8 mr-38  ml-[-320px]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extralight mb-4 sm:mb-6">
               {newsletterContent.title2}
             </h2>
             <form onSubmit={handleSubmit}>
-              <div className="flex flex-col sm:flex-row w-full max-w-xl mx-auto items-stretch sm:items-start gap-3 ml-[-100px]">
+              <div className="flex flex-col sm:flex-row w-full max-w-xl items-stretch sm:items-start gap-3">
                 <input
                   type="email"
                   placeholder={newsletterContent.placeholder}
@@ -72,6 +73,9 @@ export default function Newsletter() {
               </div>
             </form>
           </div>
+
+          {/* Spacer to maintain height - reduced */}
+          <div className="h-48 sm:h-64 md:h-80"></div>
         </div>
       </div>
     </section>
