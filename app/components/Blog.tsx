@@ -60,62 +60,56 @@ export default function Blog() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                   
-            <div className="space-y-6">
-              <div className="relative">
-                <Image
-                  src="/Images/plane.png"
-                  alt="Airplane wing over clouds"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-2xl "
-                  priority
-                />
-              </div>
-
-    
-            <div className="flex justify-center space-x-4  ml-114  mt-[-80px]">
-
-           
-            <div className="flex justify-center space-x-4 ">
-              <button className="w-12 h-12 border-2 border-[#484AF6] rounded-full flex items-center justify-center hover:bg-[#484AF6] hover:text-white transition-colors bg-white">
-                <svg
-                  className="w-6 h-6 text-[#484AF6]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <button className="w-12 h-12 border-2 border-[#484AF6] rounded-full flex items-center justify-center hover:bg-[#484AF6] hover:text-white transition-colors bg-white">
-                <svg
-                  className="w-6 h-6 text-[#484AF6]"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    className="text-[#484AF6]"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
+          <div className="space-y-6">
+            <div className="relative">
+              <Image
+                src="/Images/plane.png"
+                alt="Airplane wing over clouds"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-2xl "
+                priority
+              />
             </div>
+
+            <div className="flex justify-center space-x-4  ml-114  mt-[-80px]">
+              <div className="flex justify-center space-x-4 ">
+                <button className="w-12 h-12 border-2 border-[#484AF6] rounded-full flex items-center justify-center hover:bg-[#484AF6] hover:text-white transition-colors bg-white">
+                  <svg
+                    className="w-6 h-6 text-[#484AF6]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+                <button className="w-12 h-12 border-2 border-[#484AF6] rounded-full flex items-center justify-center hover:bg-[#484AF6] hover:text-white transition-colors bg-white">
+                  <svg
+                    className="w-6 h-6 text-[#484AF6]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      className="text-[#484AF6]"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
 
-     
           <div className="space-y-6">
-   
             <div className="flex justify-start">
               <span className="bg-indigo-200 text-indigo-900 px-4 py-2 rounded-full text-sm font-medium">
                 {blogContent.featuredPost.category}
@@ -158,12 +152,10 @@ export default function Blog() {
               </div>
             </div>
 
-        
             <h3 className="text-3xl sm:text-4xl font-Inter font-bold text-gray-900 leading-tight">
               {blogContent.featuredPost.title}
             </h3>
 
-       
             <p className="text-lg text-gray-600 leading-relaxed">
               {blogContent.featuredPost.summary}
             </p>

@@ -34,10 +34,10 @@ export default function Newsletter() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/Images/qrimg.png"
-          alt="Newsletter background"
+          src={newsletterContent.background.src}
+          alt={newsletterContent.background.alt}
           fill
-          className="object-cover"
+          className="object-contain object-left"
           priority
         />
       </div>
@@ -47,8 +47,8 @@ export default function Newsletter() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
-          {/* Left side content positioned absolutely to match your design */}
-          <div className="absolute left-0 top-0 w-1/2 text-white px-2 sm:px-8 md:px-12 py-4 sm:py-8">
+          {/* Left side content */}
+          <div className="absolute left-0 top-0 w-full sm:w-1/2 text-white px-2 sm:px-8 md:px-12 py-4 sm:py-8">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extralight leading-tight">
               {newsletterContent.title}
             </h2>
@@ -74,8 +74,19 @@ export default function Newsletter() {
             </form>
           </div>
 
-          {/* Spacer to maintain height - reduced */}
-          <div className="h-48 sm:h-64 md:h-80"></div>
+          {/* Right side image for larger screens */}
+          <div className="hidden sm:block absolute inset-y-0 right-0 w-[52%]">
+            <Image
+              src={newsletterContent.image.src}
+              alt={newsletterContent.image.alt}
+              fill
+              className="object-cover rounded-3xl"
+              priority
+            />
+          </div>
+
+          {/* Spacer to maintain height at various breakpoints */}
+          <div className="h-[280px] sm:h-[340px] md:h-[400px] lg:h-[440px] xl:h-[480px]"></div>
         </div>
       </div>
     </section>

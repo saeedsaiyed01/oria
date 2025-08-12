@@ -32,29 +32,25 @@ export default function EarlyAccess() {
       id="early-access"
       className="relative pt-0 pb-16 sm:pb-20 mx-4 sm:mx-8 lg:mx-6 mt-10"
     >
-      <div className="absolute inset-0 p-8 sm:p-12 lg:p-16 -top-20 sm:-top-24 lg:-top-32">
+      <div className="absolute left-1/2 -translate-x-1/2 -top-4 sm:-top-6 lg:-top-8 w-[99%] sm:w-[96%] lg:w-[90%] h-[320px] sm:h-[380px] lg:h-[440px] z-0 pointer-events-none">
         <Image
           src="/Images/bg-early-access.png"
           alt="Early access background"
           fill
-          className="object-contain"
+          className="object-contain object-top"
           priority
         />
       </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 py-4 lg:px-12 lg:py-6">
-      
-        <div className="relative mx-auto max-w-7xl bg-white rounded-[16px] sm:rounded-[20px] md:rounded-[22px] px-8 sm:px-14 md:px-16 lg:px-20 xl:px-24 py-12 sm:py-14 md:py-16 lg:py-2 overflow-hidden mb-18">
-          
-    
+
+      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-4 py-3 lg:px-6 lg:py-4">
+        <div className="relative mx-auto max-w-4xl bg-white border border-gray-200 rounded-[16px] sm:rounded-[20px] md:rounded-[22px] px-4 sm:px-6 md:px-8 lg:px-8 xl:px-10 py-6 sm:py-8 md:py-8 lg:py-8 overflow-hidden">
           <div className="absolute inset-0  rounded-[16px] sm:rounded-[20px] md:rounded-[22px] pointer-events-none"></div>
-          
-       
+
           <div className="absolute bottom-0 left-0 w-[15%] h-[15%] bg-white pointer-events-none"></div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-start">
-            <div className="relative mr-10">
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-tight">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-10 items-center">
+            <div className="relative mr-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-7xl font-bold leading-tight">
                 <span className="text-gray-900">
                   {earlyAccessContent.title.line1}
                 </span>
@@ -65,7 +61,7 @@ export default function EarlyAccess() {
               </h2>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-8 max-w-[560px]">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="pt-4">
                   <input
@@ -103,13 +99,30 @@ export default function EarlyAccess() {
           </div>
         </div>
 
- 
-        <div className="relative mx-2 max-w-6xl mt-8 sm:mt-12 ml-88 space-between">
-          <div className="flex justify-center gap-8 sm:gap-12 lg:gap-38">
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">Blossom</span>
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900">Volume</span>
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900">Sitemark</span>
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300">Hues</span>
+        <div className="relative mx-8 max-w-6xl mt-4 sm:mt-6 lg:mt-12">
+          <div className="relative overflow-hidden">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-24 sm:w-40 bg-gradient-to-l from-white to-transparent z-10" />
+            <div className="pointer-events-none absolute -left-4 -top-6 w-40 h-24 z-10 corner-fade-left" />
+            <div className="flex items-center gap-16 sm:gap-24 whitespace-nowrap animate-marquee will-change-transform">
+              {["Blossom", "Volume", "Sitemark", "Hues"].map((name, i) => (
+                <span
+                  key={`m1-${i}`}
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900"
+                >
+                  {name}
+                </span>
+              ))}
+              {["Blossom", "Volume", "Sitemark", "Hues"].map((name, i) => (
+                <span
+                  key={`m2-${i}`}
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900"
+                  aria-hidden="true"
+                >
+                  {name}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
