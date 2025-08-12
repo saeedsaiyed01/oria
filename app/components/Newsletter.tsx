@@ -34,9 +34,10 @@ export default function Newsletter() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src={newsletterContent.background.src}
-          alt={newsletterContent.background.alt}
-          fill
+          src={newsletterContent.image.src}
+          alt={newsletterContent.image.alt}
+          width={1550}
+          height={1500}
           className="object-contain object-left"
           priority
         />
@@ -74,16 +75,8 @@ export default function Newsletter() {
             </form>
           </div>
 
-          {/* Right side image for larger screens */}
-          <div className="hidden sm:block absolute inset-y-0 right-0 w-[52%]">
-            <Image
-              src={newsletterContent.image.src}
-              alt={newsletterContent.image.alt}
-              fill
-              className="object-cover rounded-3xl"
-              priority
-            />
-          </div>
+       
+    
 
           {/* Spacer to maintain height at various breakpoints */}
           <div className="h-[280px] sm:h-[340px] md:h-[400px] lg:h-[440px] xl:h-[480px]"></div>
