@@ -31,13 +31,14 @@ const heroContent = {
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen overflow-hidden pb-0">
+    <section id="hero" className="relative min-h-screen  pb-0 ">
       <div className="absolute inset-0">
         <Image
           src={heroContent.background.pattern}
           alt="Background pattern"
-          fill
-          className="object-cover"
+          width={1800}
+          height={1800}
+          className="object-cover mb-10"
           priority
         />
       </div>
@@ -52,54 +53,58 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-2 py-2 sm:py-16">
+
+            
         <div className="flex flex-col items-center text-center">
-          <div className="relative mb-8 sm:mb-10 lg:mb-12 flex flex-col items-center">
-            <div className="inline-block z-10">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white bg-[#484AF6] px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl inline-block">
-                {heroContent.title}
-              </h1>
-            </div>
+          
+       
+          <div className="relative mb-8 sm:mb-10 lg:mt-12 flex flex-col items-center">
+          <div className="inline-block z-10 mt-[-120px] ">
+               <h1 className=" text-4xl sm:text-6xl md:text-7xl lg:text-9xl xl:text-9xl font-bold text-white bg-[#484AF6] px-12 sm:px-6 md:px-8 py-2 sm:py-3 md:py-2 rounded-3xl inline-block">
+                 {heroContent.title}
+               </h1>
+             </div>
 
             <div className="relative inline-block -mt-1 sm:-mt-2 md:-mt-3">
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-8xl text-white font-bold mt-4 sm:mt-6 md:mt-8">
+              <p className="text-xl sm:text-2xl md:text-3xl lg:text-8xl xl:text-8xl 2xl:text-8xl text-white font-bold mt-42 sm:mt-6 md:mt-8">
                 {heroContent.subtitle}
               </p>
 
               
-                <span
-                  aria-hidden
-                  className="absolute left-[-32px] sm:left-[-48px] md:left-[-64px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] w-[1px] sm:w-[2px] bg-white"
-                ></span>
-                <span
-                  aria-hidden
-                  className="absolute right-[-32px] sm:right-[-48px] md:right-[-64px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] w-[1px] sm:w-[2px] bg-white"
-                ></span>
-                <span
-                  aria-hidden
-                  className="absolute left-[-24px] sm:left-[-36px] md:left-[-48px] right-[-24px] sm:right-[-36px] md:right-[-48px] top-[-16px] sm:top-[-24px] md:top-[-32px] h-[1px] sm:h-[2px] bg-white"
-                ></span>
-                <span
-                  aria-hidden
-                  className="absolute left-[-24px] sm:left-[-36px] md:left-[-48px] right-[-24px] sm:right-[-36px] md:right-[-48px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] h-[1px] sm:h-[2px] bg-white"
-                ></span>
+                                 <span
+                   aria-hidden
+                   className="absolute left-[-80px] sm:left-[-120px] md:left-[-160px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-50px] sm:bottom-[-80px] md:bottom-[-120px] w-[1px] sm:w-[2px] bg-white"
+                 ></span>
+                 <span
+                   aria-hidden
+                   className="absolute right-[-80px] sm:right-[-120px] md:right-[-160px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-50px] sm:bottom-[-80px] md:bottom-[-120px] w-[1px] sm:w-[2px] bg-white"
+                 ></span>
+                                 <span
+                   aria-hidden
+                   className="absolute left-[-80px] sm:left-[-120px] md:left-[-160px] right-[-80px] sm:right-[-120px] md:right-[-160px] top-[-16px] sm:top-[-24px] md:top-[-32px] h-[1px] sm:h-[2px] bg-white"
+                 ></span>
+                                   <span
+                    aria-hidden
+                    className="absolute left-[-80px] sm:left-[-120px] md:left-[-160px] right-[-80px] sm:right-[-120px] md:right-[-160px] bottom-[-50px] sm:bottom-[-80px] md:bottom-[-120px] h-[1px] sm:h-[2px] bg-white"
+                  ></span>
 
-                <span
-                  aria-hidden
-                  className="absolute left-[-40px] sm:left-[-56px] md:left-[-76px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-                ></span>
-                <span
-                  aria-hidden
-                  className="absolute right-[-40px] sm:right-[-56px] md:right-[-76px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-                ></span>
-                <span
-                  aria-hidden
-                  className="absolute left-[-40px] sm:left-[-56px] md:left-[-76px] bottom-[-20px] sm:bottom-[-32px] md:bottom-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-                ></span>
-                <span
-                  aria-hidden
-                  className="absolute right-[-40px] sm:right-[-56px] md:right-[-76px] bottom-[-20px] sm:bottom-[-32px] md:bottom-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-                ></span>
+                                 <span
+                   aria-hidden
+                   className="absolute left-[-90px] sm:left-[-130px] md:left-[-170px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
+                 ></span>
+                 <span
+                   aria-hidden
+                   className="absolute right-[-90px] sm:right-[-130px] md:right-[-170px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
+                 ></span>
+                                   <span
+                    aria-hidden
+                    className="absolute left-[-90px] sm:left-[-130px] md:left-[-170px] bottom-[-60px] sm:bottom-[-90px] md:bottom-[-130px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
+                  ></span>
+                  <span
+                    aria-hidden
+                    className="absolute right-[-90px] sm:right-[-130px] md:right-[-170px] bottom-[-60px] sm:bottom-[-90px] md:bottom-[-130px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
+                  ></span>
               </div>
             </div>
 
