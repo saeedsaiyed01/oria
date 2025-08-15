@@ -9,13 +9,13 @@ const pricingContent = {
     line2: "Membership Starts",
     line3: "Here",
   },
-      toggle: {
-      paid: "Paid",
-      free: "Free",
-    },
+  toggle: {
+    paid: "Paid",
+    free: "Free",
+  },
   button: {
     text: "View All",
-    href: "#pricing",
+    href: "/pricing",
   },
   plans: [
     {
@@ -69,13 +69,13 @@ export default function Pricing() {
   const getButtonClass = (variant: string) => {
     switch (variant) {
       case "primary":
-        return "bg-[#5B42F3] hover:bg-[#5B42F3] text-white font-medium px-6 py-3 rounded-lg";
+        return "inline-flex items-center justify-center bg-[#5B42F3] hover:bg-[#5B42F3] text-white font-medium px-6 py-3 rounded-lg";
       case "outline":
-        return "bg-white text-[#5B42F3] border border-gray-300 font-medium px-6 py-3 rounded-lg hover:bg-gray-50";
+        return "inline-flex items-center justify-center bg-white text-[#5B42F3] border border-gray-300 font-medium px-6 py-3 rounded-lg hover:bg-gray-50";
       case "dark":
-        return "bg-gray-800 hover:bg-gray-900 text-white font-medium pcax-6 py-3 rounded-lg";
+        return "inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white font-medium px-6 py-3 rounded-lg";
       default:
-        return "bg-[#5B42F3] hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg";
+        return "inline-flex items-center justify-center bg-[#5B42F3] hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg";
     }
   };
 
@@ -89,8 +89,8 @@ export default function Pricing() {
           className="object-cover"
           priority
         />
-      </div>a
-      
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col mb-16">
           <div className="mb-8">
@@ -110,7 +110,7 @@ export default function Pricing() {
 
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0">
             <div className="flex-1"></div>
-            
+
             <div className="flex items-center    rounded-xl p-1 shadow-md">
               <button
                 onClick={() => setIsPaid(false)}
@@ -151,9 +151,7 @@ export default function Pricing() {
             <div
               key={plan.id}
               className={`rounded-2xl p-12 shadow-xl relative overflow-hidden min-h-[500px] ${
-                plan.background === "dark"
-                  ? "text-white"
-                  : "text-gray-900 "
+                plan.background === "dark" ? "text-white" : "text-gray-900 "
               }`}
             >
               {plan.background === "dark" && (
@@ -189,7 +187,8 @@ export default function Pricing() {
                 <p className="text-center mb-10 text-xl leading-relaxed">
                   {plan.id === 1 ? (
                     <>
-                      Early access, special offers, and more<br />
+                      Early access, special offers, and more
+                      <br />
                       just for members
                     </>
                   ) : (
@@ -201,18 +200,25 @@ export default function Pricing() {
                   <div className="w-full h-0.5 bg-gray-300 mb-6"></div>
                   <div className="text-6xl sm:text-7xl font-Inter mb-3">
                     {isPaid ? plan.price.paid : plan.price.free}
-                    <span className="text-xl opacity-80 ml-2">{plan.period}</span>
+                    <span className="text-xl opacity-80 ml-2">
+                      {plan.period}
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex gap-4 ml-14">
                   {plan.buttons.map((button, index) => (
-                    <button
+                    <a
                       key={index}
-                      className={`w-38 ${getButtonClass(button.variant)}`}
+                      href={
+                        button.text === "Read More"
+                          ? `/pricing/${plan.id}`
+                          : `/pricing/get-started/${plan.id}`
+                      }
+                      className={getButtonClass(button.variant)}
                     >
                       {button.text}
-                    </button>
+                    </a>
                   ))}
                 </div>
               </div>

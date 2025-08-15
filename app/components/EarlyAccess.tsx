@@ -99,12 +99,12 @@ export default function EarlyAccess() {
           </div>
         </div>
 
-        <div className="relative mx-8 max-w-6xl mt-4 sm:mt-6 lg:mt-12">
+        <div className="relative mx-8 max-w-6xl mt-4 sm:mt-6 lg:mt-12 ml-28 sm:ml-44 lg:ml-64">
           <div className="relative overflow-hidden">
             <div className="pointer-events-none absolute left-0 top-0 h-full w-24 sm:w-40 bg-gradient-to-r from-white to-transparent z-10" />
             <div className="pointer-events-none absolute right-0 top-0 h-full w-24 sm:w-40 bg-gradient-to-l from-white to-transparent z-10" />
             <div className="pointer-events-none absolute -left-4 -top-6 w-40 h-24 z-10 corner-fade-left" />
-            <div className="flex items-center gap-16 sm:gap-24 whitespace-nowrap animate-marquee will-change-transform">
+            <div className="flex items-center gap-16 sm:gap-24 whitespace-nowrap animate-marquee will-change-transform pl-28 sm:pl-44 lg:pl-56">
               {["Blossom", "Volume", "Sitemark", "Hues"].map((name, i) => (
                 <span
                   key={`m1-${i}`}

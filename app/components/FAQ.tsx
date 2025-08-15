@@ -1,68 +1,95 @@
-'use client'
-import Image from 'next/image';
-import { useState } from 'react';
-import Button from './Button';
+"use client";
+import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
+import Button from "./Button";
 
 const faqContent = {
   title: {
-    line1: 'FAQ',
-    line2: 's'
+    line1: "FAQ",
+    line2: "s",
   },
   questions: [
     {
       id: 1,
-      question: 'What is included in the free trial?',
-      answer: 'Our free trial includes full access to all training modules, AI-powered feedback, and mobile app features for 14 days.'
+      question: "What is included in the free trial?",
+      answer:
+        "Our free trial includes full access to all training modules, AI-powered feedback, and mobile app features for 14 days.",
     },
     {
       id: 2,
-      question: 'How does the AI-powered training work?',
-      answer: 'Our AI analyzes your communication patterns, provides real-time feedback, and adapts training content to your specific needs.'
+      question: "How does the AI-powered training work?",
+      answer:
+        "Our AI analyzes your communication patterns, provides real-time feedback, and adapts training content to your specific needs.",
     },
     {
       id: 3,
-      question: 'Can I use this for different types of aircraft?',
-      answer: 'Yes, our platform supports training for various aircraft types including commercial, private, and military aviation.'
+      question: "Can I use this for different types of aircraft?",
+      answer:
+        "Yes, our platform supports training for various aircraft types including commercial, private, and military aviation.",
     },
     {
       id: 4,
-      question: 'Is there mobile app support?',
-      answer: 'Absolutely! Our mobile app is available for iOS and Android with full offline capabilities and seamless sync.'
+      question: "Is there mobile app support?",
+      answer:
+        "Absolutely! Our mobile app is available for iOS and Android with full offline capabilities and seamless sync.",
     },
     {
       id: 5,
-      question: 'What support options are available?',
-      answer: 'We offer 24/7 customer support via chat, email, and phone, plus comprehensive documentation and video tutorials.'
-    }
+      question: "What support options are available?",
+      answer:
+        "We offer 24/7 customer support via chat, email, and phone, plus comprehensive documentation and video tutorials.",
+    },
   ],
   button: {
-    text: 'Contact Support',
-    href: '#support'
+    text: "Contact Support",
+    href: "#support",
   },
   mobileApp: {
     title: {
-      line1: 'Join Our Mobile App',
-      line2: 'Today',
+      line1: "Join Our Mobile App",
+      line2: "Today",
     },
-    description: 'Get the most out of We Tell Facts with our mobile app. Practice anywhere, anytime with offline capabilities and seamless sync across all your devices.',
-    placeholder: 'Enter your email',
+    description:
+      "Get the most out of We Tell Facts with our mobile app. Practice anywhere, anytime with offline capabilities and seamless sync across all your devices.",
+    placeholder: "Enter your email",
     button: {
-      text: 'Notify me',
-      href: '#notify'
+      text: "Notify me",
+      href: "#notify",
     },
     countdown: {
-      title: 'App Launch Countdown',
+      title: "App Launch Countdown",
       days: 26,
       hours: 18,
       minutes: 53,
-      seconds: 21
-    }
-  }
+      seconds: 21,
+    },
+  },
 };
 
 export default function FAQ() {
   const [openQuestion, setOpenQuestion] = useState<number | null>(null);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
+
+  // Shared countdown target (match Hero)
+  const targetTime = useMemo(
+    () => new Date("2025-12-31T00:00:00Z").getTime(),
+    []
+  );
+  const getParts = (ms: number) => {
+    const now = Date.now();
+    const diff = Math.max(0, ms - now);
+    const total = Math.floor(diff / 1000);
+    const days = Math.floor(total / 86400);
+    const hours = Math.floor((total % 86400) / 3600);
+    const minutes = Math.floor((total % 3600) / 60);
+    const seconds = total % 60;
+    return { days, hours, minutes, seconds };
+  };
+  const [t, setT] = useState(() => getParts(targetTime));
+  useEffect(() => {
+    const id = setInterval(() => setT(getParts(targetTime)), 1000);
+    return () => clearInterval(id);
+  }, [targetTime]);
 
   const handleQuestionToggle = (id: number) => {
     setOpenQuestion(openQuestion === id ? null : id);
@@ -77,9 +104,7 @@ export default function FAQ() {
     <section id="faq" className="relative py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
-   
           <div className="space-y-6 sm:space-y-8">
-      
             <div className="space-y-4">
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:teimage.pngxt-6xl font-bold ">
                 <span className="text-gray-900">{faqContent.title.line1}</span>
@@ -87,7 +112,6 @@ export default function FAQ() {
               </h2>
             </div>
 
-          
             <div className="space-y-4">
               {faqContent.questions.map((item) => (
                 <div key={item.id} className="border-b border-gray-200 pb-4">
@@ -100,13 +124,18 @@ export default function FAQ() {
                     </span>
                     <svg
                       className={`w-5 h-5 text-gray-400 transition-transform ${
-                        openQuestion === item.id ? 'rotate-180' : ''
+                        openQuestion === item.id ? "rotate-180" : ""
                       }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                   {openQuestion === item.id && (
@@ -118,7 +147,6 @@ export default function FAQ() {
               ))}
             </div>
 
-           
             <div className="pt-8">
               <Button
                 href={faqContent.button.href}
@@ -130,10 +158,11 @@ export default function FAQ() {
             </div>
           </div>
 
-          
           <div className="relative">
             <p className="text-lg text-gray-600 leading-relaxed mb-6 mr-10">
-              Find answers to commonly asked questions about our platform, features, and services. Can&apos;t find what you&apos;re looking for?
+              Find answers to commonly asked questions about our platform,
+              features, and services. Can&apos;t find what you&apos;re looking
+              for?
             </p>
             <div className="relative">
               <div className="relative">
@@ -152,9 +181,9 @@ export default function FAQ() {
                     <h3 className="text-4xl sm:text-5xl font-bold text-gray-900">
                       {faqContent.mobileApp.title.line1}
                     </h3>
-                                          <h3 className="text-4xl sm:text-5xl font-bold text-[#5B42F3]">
-                        {faqContent.mobileApp.title.line2}
-                      </h3>
+                    <h3 className="text-4xl sm:text-5xl font-bold text-[#5B42F3]">
+                      {faqContent.mobileApp.title.line2}
+                    </h3>
                   </div>
 
                   <p className="text-lg text-gray-600 leading-relaxed text-left mt-[-30px] ">
@@ -162,50 +191,53 @@ export default function FAQ() {
                   </p>
 
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className='mt-[-20px]'>
-                    <div className="space-y-6">
-                      <form onSubmit={handleSubmit} className="space-y-4">
-                        <input
-                          type="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder={faqContent.mobileApp.placeholder}
-                          className="w-70 h-12 px-8 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
-                          required
-                        />
-                        <Button
-                          type="submit"
-                          size="lg"
-                          className="w-30 bg-gray-800 hover:bg-gray-900 text-white font-bold px-6 py-3 rounded-xl"
-                        >
-                          {faqContent.mobileApp.button.text}
-                        </Button>
-                      </form>
+                    <div className="mt-[-20px]">
+                      <div className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                          <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder={faqContent.mobileApp.placeholder}
+                            className="w-70 h-12 px-8 border border-gray-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                            required
+                          />
+                          <Button
+                            type="submit"
+                            size="lg"
+                            className="w-30 bg-gray-800 hover:bg-gray-900 text-white font-bold px-6 py-3 rounded-xl"
+                          >
+                            {faqContent.mobileApp.button.text}
+                          </Button>
+                        </form>
+                      </div>
                     </div>
-                    </div>
-                    
                   </div>
                 </div>
               </div>
-              
+
               {/* Countdown box positioned outside the main card */}
               <div className=" mb-20  mr-10 absolute -bottom-6 -right-6 bg-purple-50 border border-gray-200 rounded-xl p-4 max-w-[200px] shadow-lg z-20">
                 <h4 className="text-sm font-bold text-gray-900 mb-3 text-center">
                   {faqContent.mobileApp.countdown.title}
                 </h4>
                 <div className="grid grid-cols-4 gap-2">
-                  {[{
-                    label: 'Days', value: faqContent.mobileApp.countdown.days
-                  }, {
-                    label: 'Hours', value: faqContent.mobileApp.countdown.hours
-                  }, {
-                    label: 'Mins', value: faqContent.mobileApp.countdown.minutes
-                  }, {
-                    label: 'Sec', value: faqContent.mobileApp.countdown.seconds
-                  }].map((item) => (
-                    <div key={item.label} className="bg-white border border-blue-300 rounded-lg px-2 py-1 text-center">
-                      <div className="text-lg font-medium text-[#5B42F3]">{item.value}</div>
-                      <div className="text-[10px] text-gray-600">{item.label}</div>
+                  {[
+                    { label: "Days", value: t.days },
+                    { label: "Hours", value: t.hours },
+                    { label: "Mins", value: t.minutes },
+                    { label: "Sec", value: t.seconds },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="bg-white border border-blue-300 rounded-lg px-2 py-1 text-center"
+                    >
+                      <div className="text-lg font-medium text-[#5B42F3]">
+                        {String(item.value).padStart(2, "0")}
+                      </div>
+                      <div className="text-[10px] text-gray-600">
+                        {item.label}
+                      </div>
                     </div>
                   ))}
                 </div>
