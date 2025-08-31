@@ -33,19 +33,27 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white text-gray-900 sticky top-0 z-50 mb-10">
+    <nav className="bg-white text-gray-900 z-50 mb-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center mt-12">
             <Link href="/" className="flex items-center space-x-2">
-                             <Image
-                 src={navbarContent.logo.src}
-                 alt={navbarContent.logo.alt}
-                 width={100}
-                 height={100}
-                 className="w-15 h15 mt-[2px] rounded-sm"
-               />
+              <Image
+                src={navbarContent.logo.src}
+                alt={navbarContent.logo.alt}
+                width={99}
+                height={99}
+                className="rounded-[10px] opacity-100"
+                style={{
+                  width: '99px',
+                  height: '99px',
+                  top: '18px',
+                  left: '79px',
+                  borderRadius: '10px',
+                  opacity: 1
+                }}
+              />
               {/* <span className="text-xl font-bold text-gray-900">
                 {navbarContent.logo.text}
               </span> */}
@@ -70,7 +78,20 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <Link
               href={navbarContent.cta.href}
-              className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+              className="text-white text-sm font-medium transition-colors duration-200"
+              style={{
+                width: '140px',
+                height: '46px',
+                top: '28px',
+                left: '1220px',
+                borderRadius: '10px',
+                opacity: 1,
+                backgroundColor: '#08192B',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textDecoration: 'none'
+              }}
             >
               {navbarContent.cta.text}
             </Link>
