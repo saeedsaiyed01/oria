@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 const keyFeaturesContent = {
   header: "OUR KEY FEATURES",
@@ -29,6 +31,36 @@ const keyFeaturesContent = {
 };
 
 export default function KeyFeatures() {
+  const slides = [
+    {
+      title1: keyFeaturesContent.feature.title.line1,
+      title2: keyFeaturesContent.feature.title.line4,
+      description: keyFeaturesContent.feature.description,
+      image: keyFeaturesContent.mobileImage.src,
+      alt: keyFeaturesContent.mobileImage.alt,
+    },
+    {
+      title1: "Context-Aware",
+      title2: "Feedback",
+      description:
+        "Real‑time coaching adapts to intent and phraseology so you learn the right call at the right moment.",
+      image: keyFeaturesContent.mobileImage.src,
+      alt: keyFeaturesContent.mobileImage.alt,
+    },
+    {
+      title1: "Scenario-Based",
+      title2: "Training",
+      description:
+        "Practice realistic ATC exchanges across weather, traffic, and airspace variations to build proficiency.",
+      image: keyFeaturesContent.mobileImage.src,
+      alt: keyFeaturesContent.mobileImage.alt,
+    },
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const prev = () => setCurrent((c) => (c - 1 + slides.length) % slides.length);
+  const next = () => setCurrent((c) => (c + 1) % slides.length);
+
   return (
     <section
       id="key-features"
@@ -68,71 +100,93 @@ export default function KeyFeatures() {
             </p>
           </div>
 
-          <div className="flex justify-center lg:justify-center">
-            <div className="relative origin-center -mt-2 sm:-mt-4 lg:-mt-6 xl:-mt-8 scale-125 sm:scale-150 md:scale-[1.7] lg:scale-[1.9] xl:scale-[2.05] 2xl:scale-[2.15]">
-              <Image
-                src={keyFeaturesContent.mobileImage.src}
-                alt={keyFeaturesContent.mobileImage.alt}
-                width={420}
-                height={840}
-                className="w-[420px] sm:w-[460px] md:w-[520px] lg:w-[560px] xl:w-[600px] 2xl:w-[640px] h-auto drop-shadow-2xl"
-                priority
-              />
+          <div className="col-span-1 lg:col-span-2 overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${current * 100}%)` }}
+            >
+              {slides.map((s, idx) => (
+                <div
+                  key={idx}
+                  className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-10 lg:gap-12 items-center shrink-0 w-full"
+                >
+                  <div className="flex justify-center lg:justify-center">
+                    <div className="relative origin-center -mt-2 sm:-mt-4 lg:-mt-6 xl:-mt-8 scale-125 sm:scale-150 md:scale-[1.7] lg:scale-[1.9] xl:scale-[2.05] 2xl:scale-[2.15] pointer-events-none">
+                      <Image
+                        src={s.image}
+                        alt={s.alt}
+                        width={420}
+                        height={840}
+                        className="w-[420px] sm:w-[460px] md:w-[520px] lg:w-[560px] xl:w-[600px] 2xl:w-[640px] h-auto drop-shadow-2xl"
+                        priority
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 sm:space-y-6">
+                    <div className="w-16 h-16 bg-[#484AF6] rounded-full flex items-center justify-center">
+                      <span className="text-white text-xl sm:text-2xl font-bold">
+                        {keyFeaturesContent.feature.icon}
+                      </span>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
+                        {s.title1}
+                      </h3>
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
+                        {s.title2}
+                      </h3>
+                    </div>
+
+                    <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
+                      {s.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          <div className="space-y-4 sm:space-y-6">
-            <div className="w-16 h-16 bg-[#484AF6] rounded-full flex items-center justify-center">
-              <span className="text-white text-xl sm:text-2xl font-bold">
-                {keyFeaturesContent.feature.icon}
-              </span>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">
-                {keyFeaturesContent.feature.title.line1}
-              </h3>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black leading-tight">
-                {keyFeaturesContent.feature.title.line4}
-              </h3>
-            </div>
-
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg">
-              {keyFeaturesContent.feature.description}
-            </p>
-
-            <div className="flex space-x-4 pt-4">
-              <button className="w-12 h-12 bg-[#484AF6] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-              </button>
-              <button className="w-12 h-12 bg-[#484AF6] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </button>
-            </div>
+          {/* Fixed navigation below the carousel */}
+          <div className="col-span-1 lg:col-span-3 mt-4 flex justify-center gap-4">
+            <button
+              onClick={prev}
+              aria-label="Previous"
+              className="w-12 h-12 bg-[#484AF6] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+            >
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next"
+              className="w-12 h-12 bg-[#484AF6] rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors"
+            >
+              <svg
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

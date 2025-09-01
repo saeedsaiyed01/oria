@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navbarContent = {
   logo: {
@@ -27,9 +27,40 @@ const navbarContent = {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [active, setActive] = useState<string>("#hero");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const sections = navbarContent.navigation.map((n) => document.querySelector(n.href) as HTMLElement | null);
+    const handler = () => {
+      let current = "#hero";
+      for (const nav of navbarContent.navigation) {
+        const el = document.querySelector(nav.href) as HTMLElement | null;
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          current = nav.href;
+          break;
+        }
+      }
+      setActive(current);
+    };
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    const el = document.querySelector(href);
+    if (el) {
+      (el as HTMLElement).scrollIntoView({ behavior: "smooth", block: "start" });
+      setActive(href);
+    }
   };
 
   return (
@@ -67,7 +98,8 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                  onClick={(e) => smoothScroll(e, item.href)}
+                  className={`${active === item.href ? "text-blue-700" : "text-gray-700"} hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200`}
                 >
                   {item.name}
                 </Link>
@@ -78,6 +110,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <Link
               href={navbarContent.cta.href}
+
               className="text-white text-sm font-medium transition-colors duration-200"
               style={{
                 width: '140px',
@@ -92,6 +125,10 @@ export default function Navbar() {
                 justifyContent: 'center',
                 textDecoration: 'none'
               }}
+
+              onClick={(e) => smoothScroll(e, navbarContent.cta.href)}
+              className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+
             >
               {navbarContent.cta.text}
             </Link>
@@ -148,8 +185,11 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-gray-700 hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
+              className={`${active === item.href ? "text-blue-700" : "text-gray-700"} hover:text-gray-900 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200`}
+              onClick={(e) => {
+                smoothScroll(e, item.href);
+                setIsMenuOpen(false);
+              }}
             >
               {item.name}
             </Link>
@@ -158,7 +198,10 @@ export default function Navbar() {
             <Link
               href={navbarContent.cta.href}
               className="bg-blue-900 hover:bg-blue-800 text-white block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => {
+                smoothScroll(e, navbarContent.cta.href);
+                setIsMenuOpen(false);
+              }}
             >
               {navbarContent.cta.text}
             </Link>
