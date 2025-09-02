@@ -159,7 +159,7 @@ export default function FAQ() {
           </div>
 
           <div className="relative">
-            <p className="text-lg text-gray-600 leading-relaxed mb-6 mr-10">
+            <p className="text-lg text-gray-600 leading-relaxed mb-6 text-right max-w-md ml-auto">
               Find answers to commonly asked questions about our platform,
               features, and services. Can&apos;t find what you&apos;re looking
               for?
@@ -171,7 +171,7 @@ export default function FAQ() {
                   alt="Mobile app background card with cut-out corner"
                   width={600}
                   height={400}
-                  className="w-full h-auto"
+                  className="w-full h-auto mt-10"
                   priority
                 />
               </div>
@@ -186,7 +186,7 @@ export default function FAQ() {
                     </h3>
                   </div>
 
-                  <p className="text-lg text-gray-600 leading-relaxed text-left mt-[-30px] ">
+                  <p className="text-base text-gray-600 leading-relaxed text-left max-w-md mr-auto mt-0 translate-y-[-18px]">
                     {faqContent.mobileApp.description}
                   </p>
 
@@ -212,34 +212,35 @@ export default function FAQ() {
                         </form>
                       </div>
                     </div>
+                    <div className="hidden lg:block"></div>
                   </div>
-                </div>
-              </div>
 
-              {/* Countdown box positioned outside the main card */}
-              <div className=" mb-20  mr-10 absolute -bottom-6 -right-6 bg-purple-50 border border-gray-200 rounded-xl p-4 max-w-[200px] shadow-lg z-20">
-                <h4 className="text-sm font-bold text-gray-900 mb-3 text-center">
-                  {faqContent.mobileApp.countdown.title}
-                </h4>
-                <div className="grid grid-cols-4 gap-2">
-                  {[
-                    { label: "Days", value: t.days },
-                    { label: "Hours", value: t.hours },
-                    { label: "Mins", value: t.minutes },
-                    { label: "Sec", value: t.seconds },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="bg-white border border-blue-300 rounded-lg px-2 py-1 text-center"
-                    >
-                      <div className="text-lg font-medium text-[#5B42F3]">
-                        {String(item.value).padStart(2, "0")}
-                      </div>
-                      <div className="text-[10px] text-gray-600">
-                        {item.label}
-                      </div>
+                  {/* App Launch Countdown - positioned at center-right */}
+                  <div className="absolute top-1/2 right-8 transform -translate-y-1/2 translate-x-[15px] translate-y-[15px] bg-purple-50 border border-gray-200 rounded-xl p-4 max-w-[230px] shadow-lg z-20">
+                    <h4 className="text-sm font-bold text-gray-900 mb-3 text-center">
+                      {faqContent.mobileApp.countdown.title}
+                    </h4>
+                    <div className="grid grid-cols-4 gap-2">
+                      {[
+                        { label: "Days", value: t.days },
+                        { label: "Hours", value: t.hours },
+                        { label: "Mins", value: t.minutes },
+                        { label: "Sec", value: t.seconds },
+                      ].map((item) => (
+                        <div
+                          key={item.label}
+                          className="bg-white border border-blue-300 rounded-lg px-2 py-1 text-center"
+                        >
+                          <div className="text-lg font-medium text-[#5B42F3]">
+                            {String(item.value).padStart(2, "0")}
+                          </div>
+                          <div className="text-[10px] text-gray-600">
+                            {item.label}
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
             </div>

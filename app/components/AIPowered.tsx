@@ -83,8 +83,8 @@ export default function AIPowered() {
           </div>
 
           <div className="space-y-6 sm:space-y-8 ">
-            <div className="">
-              <p className="text-lg text-black leading-relaxed text-right mr-[80px]">
+            <div className="flex justify-end">
+              <p className="text-base sm:text-lg text-gray-700 leading-relaxed text-right max-w-md ml-auto font-medium">
                 {aiPoweredContent.supportingText}
               </p>
             </div>

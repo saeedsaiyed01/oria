@@ -18,7 +18,7 @@ const buttonVariants = {
   secondary: 'bg-gray-600 hover:bg-gray-700 text-white border border-gray-600 hover:border-gray-700',
   outline: 'bg-transparent text-blue-600 border border-blue-600 hover:bg-blue-50',
   ghost: 'bg-transparent text-gray-700 hover:bg-gray-100 border border-transparent',
-  yellow: 'bg-yellow-400 hover:bg-yellow-500 text-black border border-yellow-400 hover:border-yellow-500'
+  yellow: 'bg-[#FFD700] hover:bg-[#FFC700] text-black border-2 border-[#FFB000] hover:border-[#FFA500] shadow-lg hover:shadow-xl'
 };
 
 const buttonSizes = {

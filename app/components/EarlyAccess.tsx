@@ -78,14 +78,14 @@ export default function EarlyAccess() {
                   <Button
                     type="submit"
                     size="lg"
-                    className="bg-[#484AF6] hover:bg-[#3A3AE6] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base shadow-md"
+                    className="bg-[#484AF6] hover:bg-[#3A3AE6] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base shadow-sm"
                   >
                     {earlyAccessContent.buttons.send}
                   </Button>
 
                   <Button
                     size="lg"
-                    className="bg-[#484AF6] hover:bg-[#3A3AE6] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base shadow-md"
+                    className="bg-[#484AF6] hover:bg-[#3A3AE6] text-white font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-sm sm:text-base shadow-sm"
                   >
                     {earlyAccessContent.buttons.notify}
                   </Button>
@@ -99,13 +99,6 @@ export default function EarlyAccess() {
           </div>
         </div>
 
-
-        <div className="relative mx-2 sm:mx-4 md:mx-6 lg:mx-8 max-w-6xl mt-4 sm:mt-6 md:mt-8 lg:mt-10">
-          
-          <div className="relative overflow-hidden">
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-16 sm:w-24 md:w-32 lg:w-40 bg-gradient-to-l from-gray-50 to-transparent z-10" />
-            <div className="flex items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 whitespace-nowrap animate-marquee will-change-transform">
 
         <div className="relative mx-8 max-w-6xl mt-4 sm:mt-6 lg:mt-12 ml-28 sm:ml-44 lg:ml-64">
           <div className="relative overflow-hidden">

@@ -26,12 +26,14 @@ export default function FeaturePage({ params }: PageProps) {
         </div>
       </div>
     </div>
+  );
+}
 
 interface Params {
   params: { slug: string };
 }
 
-export default function FeatureDetail({ params }: Params) {
+export function FeatureDetail({ params }: Params) {
   const { slug } = params;
   return (
     <main className="min-h-[60vh] flex items-center justify-center">

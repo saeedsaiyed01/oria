@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import Button from "./Button";
-import { useEffect, useMemo, useState } from "react";
 
 const heroContent = {
   title: "WTF",
@@ -54,20 +53,11 @@ function TimeCell({ label, value }: { label: string; value: number }) {
   const formatted = value.toString().padStart(2, "0");
 
   return (
-    <div className="bg-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-center backdrop-blur-md border border-white/20 shadow-inner">
-      <div className="text-white text-lg sm:text-2xl font-semibold leading-none">
-        <span key={formatted} className="tick-digit block tick-animate">
-          {formatted}
-        </span>
-
-  return (
-    <div className="bg-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-center backdrop-blur-md border border-white/20 shadow-inner">
-      <div className="text-white text-lg sm:text-2xl font-semibold leading-none">
-        <span key={formatted} className="tick-digit block tick-animate">
-          {formatted}
-        </span>
+    <div className="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-3 text-center border border-white/20">
+      <div className="text-white text-xl font-bold leading-tight mb-1">
+        {formatted}
       </div>
-      <div className="text-white/70 text-[10px] sm:text-[12px] mt-1 leading-none">
+      <div className="text-white/70 text-sm font-medium">
         {label}
       </div>
     </div>
@@ -99,149 +89,33 @@ export default function Hero() {
           className="object-cover"
           priority
         />
-
       </div>
-      <div className="text-white/70 text-[10px] sm:text-[12px] mt-1 leading-none">
-        {label}
+
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src={heroContent.background.overlay}
+          alt="Background overlay"
+          fill
+          className="object-cover"
+          priority
+        />
       </div>
-    </div>
-  );
-}
-
-export default function Hero() {
-  const targetTime = useMemo(() => {
-    // Set your launch target here (UTC). Adjust as needed.
-    return new Date("2025-12-31T00:00:00Z").getTime();
-  }, []);
-
-  const [time, setTime] = useState<TimeParts>(() => getTimeParts(targetTime));
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setTime(getTimeParts(targetTime));
-    }, 1000);
-    return () => clearInterval(id);
-  }, [targetTime]);
-
-  return (
-    <section id="hero" className="relative min-h-screen overflow-hidden pb-0 ">
-             <div className="absolute inset-0" style={{ marginTop: "30px" }}>
-                   <Image
-            src={heroContent.background.pattern}
-            alt="Background pattern"
-            fill
-            className="object-cover"
-            priority
-          />
-       </div>
-
-
-             <div className="absolute inset-0 w-full h-full">
-         <Image
-           src={heroContent.background.overlay}
-           alt="Background overlay"
-           fill
-           className="object-cover"
-           priority
-         />
-       </div>
-
-             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 " style={{ marginTop: "20px" }}>
-        <div className="flex flex-col items-center text-center">
-        <div className="relative flex flex-col items-center text-center mb-16 sm:mb-20 lg:mb-[-20px]">
-            {/* WTF Title */}
-            <div className="relative z-20 mb-8 sm:mb-12">
-              <h1
-                className="text-6xl mt-[-60px] sm:text-8xl md:text-9xl lg:text-[200px] font-black text-white bg-[#484AF6] px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 rounded-[35px] inline-block"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  lineHeight: "125.74px",
-                  textAlign: "center",
-                  width: "555px",
-                  height: "210.55px",
-                  top: "13px",
-                  left: "6px",
-                  borderRadius: "25px",
-                  opacity: 1,
-                }}
-              >
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="flex flex-col items-center text-center">
           <div className="relative mb-8 sm:mb-10 lg:mb-12 flex flex-col items-center">
             <div className="inline-block z-10">
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white bg-[#484AF6] px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl inline-block">
-
                 {heroContent.title}
               </h1>
             </div>
-
-
-            {/* We Tell Facts Subtitle with Frame */}
-            <div className="relative inline-block mt-[-58px]">
-              <p
-                className="text-2xl  mt-10 sm:text-3xl md:text-4xl lg:text-6xl xl:text-7xl 2xl:text-8xl text-white font-bold mb-8 sm:mb-12"
-                style={{
-                  fontFamily: "Inter, sans-serif",
-                  fontWeight: 200,
-                  fontSize: "151.44px",
-                }}
-              >
-                {heroContent.subtitle}
-              </p>
-
-              {/* Blue Frame Lines - Top horizontal line */}
-              <span
-                aria-hidden
-                className="absolute left-[-40px] sm:left-[-60px] md:left-[-80px] lg:left-[-100px] right-[-40px] sm:right-[-60px] md:right-[-80px] lg:right-[-100px] top-[-20px] sm:top-[-30px] md:top-[-40px] lg:top-[-50px] h-[2px] sm:h-[3px] md:h-[4px] bg-white"
-              ></span>
-
-              {/* Blue Frame Lines - Bottom horizontal line */}
-              <span
-                aria-hidden
-                className="absolute left-[-40px] sm:left-[-60px] md:left-[-80px] lg:left-[-100px] right-[-40px] sm:right-[-60px] md:right-[-80px] lg:right-[-100px] bottom-[-30px] sm:bottom-[-40px] md:bottom-[-50px] lg:bottom-[-60px] h-[2px] sm:h-[3px] md:h-[4px] bg-white"
-              ></span>
-
-              {/* Blue Frame Lines - Left vertical line */}
-              <span
-                aria-hidden
-                className="absolute left-[-40px] sm:left-[-60px] md:left-[-80px] lg:left-[-100px] top-[-10px] sm:top-[-15px] md:top-[-20px] lg:top-[-25px] bottom-[-30px] sm:bottom-[-40px] md:bottom-[-50px] lg:bottom-[-60px] w-[2px] sm:w-[3px] md:w-[4px] bg-white"
-              ></span>
-
-              {/* Blue Frame Lines - Right vertical line */}
-              <span
-                aria-hidden
-                className="absolute right-[-40px] sm:right-[-60px] md:right-[-80px] lg:right-[-100px] top-[-10px] sm:top-[-15px] md:top-[-20px] lg:top-[-25px] bottom-[-30px] sm:bottom-[-40px] md:bottom-[-50px] lg:bottom-[-60px] w-[2px] sm:w-[3px] md:w-[4px] bg-white"
-              ></span>
-
-              {/* Corner markers - Top left */}
-              <span
-                aria-hidden
-                className="absolute left-[-50px] sm:left-[-70px] md:left-[-90px] lg:left-[-110px] top-[-25px] sm:top-[-35px] md:top-[-45px] lg:top-[-55px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#484AF6] rounded-sm"
-              ></span>
-
-              {/* Corner markers - Top right */}
-              <span
-                aria-hidden
-                className="absolute right-[-50px] sm:right-[-70px] md:right-[-90px] lg:right-[-110px] top-[-25px] sm:top-[-35px] md:top-[-45px] lg:top-[-55px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#484AF6] rounded-sm"
-              ></span>
-
-              {/* Corner markers - Bottom left */}
-              <span
-                aria-hidden
-                className="absolute left-[-50px] sm:left-[-70px] md:left-[-90px] lg:left-[-110px] bottom-[-40px] sm:bottom-[-50px] md:bottom-[-60px] lg:bottom-[-70px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#484AF6] rounded-sm"
-              ></span>
-
-              {/* Corner markers - Bottom right */}
-              <span
-                aria-hidden
-                className="absolute right-[-50px] sm:right-[-70px] md:right-[-90px] lg:right-[-110px] bottom-[-40px] sm:bottom-[-50px] md:bottom-[-60px] lg:bottom-[-70px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#484AF6] rounded-sm"
 
             <div className="relative inline-block -mt-1 sm:-mt-2 md:-mt-3">
               <p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-8xl text-white font-bold mt-4 sm:mt-6 md:mt-8">
                 {heroContent.subtitle}
               </p>
 
+              {/* Frame lines */}
               <span
                 aria-hidden
                 className="absolute left-[-32px] sm:left-[-48px] md:left-[-64px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] w-[1px] sm:w-[2px] bg-white"
@@ -259,6 +133,7 @@ export default function Hero() {
                 className="absolute left-[-24px] sm:left-[-36px] md:left-[-48px] right-[-24px] sm:right-[-36px] md:right-[-48px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] h-[1px] sm:h-[2px] bg-white"
               ></span>
 
+              {/* Corner markers */}
               <span
                 aria-hidden
                 className="absolute left-[-40px] sm:left-[-56px] md:left-[-76px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
@@ -274,13 +149,10 @@ export default function Hero() {
               <span
                 aria-hidden
                 className="absolute right-[-40px] sm:right-[-56px] md:right-[-76px] bottom-[-20px] sm:bottom-[-32px] md:bottom-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-
               ></span>
             </div>
           </div>
 
-
-
           <div className="relative">
             <Image
               src={heroContent.smartphone.src}
@@ -290,22 +162,13 @@ export default function Hero() {
               className="w-64 sm:w-80 md:w-96 lg:w-[600px] xl:w-[800px] 2xl:w-[1047px] h-auto"
               priority
             />
-
-
-          <div className="relative">
-            <Image
-              src={heroContent.smartphone.src}
-              alt={heroContent.smartphone.alt}
-              width={heroContent.smartphone.width}
-              height={heroContent.smartphone.height}
-              className="w-64 sm:w-80 md:w-96 lg:w-[600px] xl:w-[800px] 2xl:w-[1047px] h-auto"
-              priority
-            />
-         <div className="hidden md:block mt-20 mr-60 absolute top-4 sm:top-6 md:top-8 lg:top-10 right-[-180px] sm:right-[-240px] md:right-[-300px] lg:right-[-360px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
-              <div className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 text-center">
+            
+            {/* Coming Soon overlay - positioned to the right of the phone */}
+            <div className="absolute top-[40%] left-[55%] transform -translate-y-1/2 bg-black/40 backdrop-blur-md rounded-2xl px-6 py-4 shadow-xl border border-white/10 min-w-[280px]">
+              <div className="text-white/90 text-lg font-semibold mb-4 text-center">
                 Coming Soon
               </div>
-              <div className="grid grid-cols-4 gap-3 sm:gap-4">
+              <div className="grid grid-cols-4 gap-3">
                 <TimeCell label="Days" value={time.days} />
                 <TimeCell label="Hours" value={time.hours} />
                 <TimeCell label="Mins" value={time.minutes} />
@@ -319,7 +182,7 @@ export default function Hero() {
               href={heroContent.primaryCTA.href}
               variant="yellow"
               size="lg"
-              className="font-bold px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base md:text-lg mb-38"
+              className="font-bold px-8 sm:px-10 py-4 sm:py-5 rounded-full text-lg sm:text-xl md:text-2xl transform hover:scale-105 transition-all duration-200 drop-shadow-lg mb-30"
             >
               {heroContent.primaryCTA.text}
             </Button>

@@ -38,8 +38,10 @@ export default function FeaturesPage() {
         </div>
       </div>
     </div>
+  );
+}
 
-export default function FeaturesIndex() {
+export function FeaturesIndex() {
   return (
     <main className="min-h-[60vh] flex items-center justify-center">
       <div className="text-center p-8 rounded-2xl border border-gray-200 shadow-sm">
