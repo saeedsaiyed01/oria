@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import Button from "./Button";
-import { useEffect, useMemo, useState } from "react";
 
 const heroContent = {
   title: "WTF",
@@ -52,54 +51,12 @@ function getTimeParts(targetMs: number): TimeParts {
 
 function TimeCell({ label, value }: { label: string; value: number }) {
   const formatted = value.toString().padStart(2, "0");
-
   return (
     <div className="bg-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-center backdrop-blur-md border border-white/20 shadow-inner">
       <div className="text-white text-lg sm:text-2xl font-semibold leading-none">
         <span key={formatted} className="tick-digit block tick-animate">
           {formatted}
         </span>
-
-  return (
-    <div className="bg-white/10 rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-center backdrop-blur-md border border-white/20 shadow-inner">
-      <div className="text-white text-lg sm:text-2xl font-semibold leading-none">
-        <span key={formatted} className="tick-digit block tick-animate">
-          {formatted}
-        </span>
-      </div>
-      <div className="text-white/70 text-[10px] sm:text-[12px] mt-1 leading-none">
-        {label}
-      </div>
-    </div>
-  );
-}
-
-export default function Hero() {
-  const targetTime = useMemo(() => {
-    // Set your launch target here (UTC). Adjust as needed.
-    return new Date("2025-12-31T00:00:00Z").getTime();
-  }, []);
-
-  const [time, setTime] = useState<TimeParts>(() => getTimeParts(targetTime));
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setTime(getTimeParts(targetTime));
-    }, 1000);
-    return () => clearInterval(id);
-  }, [targetTime]);
-
-  return (
-    <section id="hero" className="relative min-h-screen overflow-hidden pb-0">
-      <div className="absolute inset-0">
-        <Image
-          src={heroContent.background.pattern}
-          alt="Background pattern"
-          fill
-          className="object-cover"
-          priority
-        />
-
       </div>
       <div className="text-white/70 text-[10px] sm:text-[12px] mt-1 leading-none">
         {label}
@@ -135,7 +92,6 @@ export default function Hero() {
           />
        </div>
 
-
              <div className="absolute inset-0 w-full h-full">
          <Image
            src={heroContent.background.overlay}
@@ -165,17 +121,9 @@ export default function Hero() {
                   opacity: 1,
                 }}
               >
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <div className="flex flex-col items-center text-center">
-          <div className="relative mb-8 sm:mb-10 lg:mb-12 flex flex-col items-center">
-            <div className="inline-block z-10">
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white bg-[#484AF6] px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-xl inline-block">
-
                 {heroContent.title}
               </h1>
             </div>
-
 
             {/* We Tell Facts Subtitle with Frame */}
             <div className="relative inline-block mt-[-58px]">
@@ -236,51 +184,11 @@ export default function Hero() {
               <span
                 aria-hidden
                 className="absolute right-[-50px] sm:right-[-70px] md:right-[-90px] lg:right-[-110px] bottom-[-40px] sm:bottom-[-50px] md:bottom-[-60px] lg:bottom-[-70px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-8 lg:h-8 bg-[#484AF6] rounded-sm"
-
-            <div className="relative inline-block -mt-1 sm:-mt-2 md:-mt-3">
-              <p className="text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-8xl text-white font-bold mt-4 sm:mt-6 md:mt-8">
-                {heroContent.subtitle}
-              </p>
-
-              <span
-                aria-hidden
-                className="absolute left-[-32px] sm:left-[-48px] md:left-[-64px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] w-[1px] sm:w-[2px] bg-white"
-              ></span>
-              <span
-                aria-hidden
-                className="absolute right-[-32px] sm:right-[-48px] md:right-[-64px] top-[-16px] sm:top-[-24px] md:top-[-32px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] w-[1px] sm:w-[2px] bg-white"
-              ></span>
-              <span
-                aria-hidden
-                className="absolute left-[-24px] sm:left-[-36px] md:left-[-48px] right-[-24px] sm:right-[-36px] md:right-[-48px] top-[-16px] sm:top-[-24px] md:top-[-32px] h-[1px] sm:h-[2px] bg-white"
-              ></span>
-              <span
-                aria-hidden
-                className="absolute left-[-24px] sm:left-[-36px] md:left-[-48px] right-[-24px] sm:right-[-36px] md:right-[-48px] bottom-[-16px] sm:bottom-[-24px] md:bottom-[-32px] h-[1px] sm:h-[2px] bg-white"
-              ></span>
-
-              <span
-                aria-hidden
-                className="absolute left-[-40px] sm:left-[-56px] md:left-[-76px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-              ></span>
-              <span
-                aria-hidden
-                className="absolute right-[-40px] sm:right-[-56px] md:right-[-76px] top-[-20px] sm:top-[-32px] md:top-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-              ></span>
-              <span
-                aria-hidden
-                className="absolute left-[-40px] sm:left-[-56px] md:left-[-76px] bottom-[-20px] sm:bottom-[-32px] md:bottom-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-              ></span>
-              <span
-                aria-hidden
-                className="absolute right-[-40px] sm:right-[-56px] md:right-[-76px] bottom-[-20px] sm:bottom-[-32px] md:bottom-[-44px] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 bg-[#484AF6] rounded-sm"
-
               ></span>
             </div>
           </div>
 
 
-
           <div className="relative">
             <Image
               src={heroContent.smartphone.src}
@@ -291,17 +199,7 @@ export default function Hero() {
               priority
             />
 
-
-          <div className="relative">
-            <Image
-              src={heroContent.smartphone.src}
-              alt={heroContent.smartphone.alt}
-              width={heroContent.smartphone.width}
-              height={heroContent.smartphone.height}
-              className="w-64 sm:w-80 md:w-96 lg:w-[600px] xl:w-[800px] 2xl:w-[1047px] h-auto"
-              priority
-            />
-         <div className="hidden md:block mt-20 mr-60 absolute top-4 sm:top-6 md:top-8 lg:top-10 right-[-180px] sm:right-[-240px] md:right-[-300px] lg:right-[-360px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
+            <div className="hidden md:block mt-20 mr-60 absolute top-4 sm:top-6 md:top-8 lg:top-10 right-[-180px] sm:right-[-240px] md:right-[-300px] lg:right-[-360px] bg-white/10 backdrop-blur-md border border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg">
               <div className="text-white/80 text-xs sm:text-sm mb-2 sm:mb-3 text-center">
                 Coming Soon
               </div>
